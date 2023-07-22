@@ -13,7 +13,7 @@ class CatalogImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.network(
-            image,
-          ).box.color(MyTheme.creamColor).make().p16().w40(context);
+      image,
+    ).box.color(context.canvasColor).make().p16().w40(context);
   }
 }
