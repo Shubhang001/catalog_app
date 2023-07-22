@@ -1,7 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,10 +19,16 @@ class HomePage extends StatefulWidget {
   }
 
 class _HomePageState extends State<HomePage> {
+  Color fabColor= Colors.yellow;bool f1= false;
 @override
   void initState() {
     super.initState();
-    loadData();
+     loadData();
+    Future.delayed(Duration.zero, () {f1=true;
+    final currentTheme = context.theme;
+    fabColor = currentTheme.floatingActionButtonTheme.backgroundColor!;
+    });
+   
   }
 
 loadData()async{
@@ -39,16 +42,16 @@ loadData()async{
      });
 }
 
-
   @override
   // ignore: dead_code
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
-         backgroundColor: MyTheme.darkBluishColor,
-         child: const Icon(CupertinoIcons.cart),
          onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoutes),
+         backgroundColor: fabColor,
+         child: const Icon(CupertinoIcons.cart),
+         
          ),
      body: SafeArea(
        child: Container(
@@ -67,6 +70,5 @@ loadData()async{
      ),
 
     );
-      
   }
 }
