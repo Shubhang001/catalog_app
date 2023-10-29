@@ -1,11 +1,11 @@
-import 'package:Catalog_app/Screen/cart_page.dart';
-import 'package:Catalog_app/Screen/home_page.dart';
-import 'package:Catalog_app/Screen/login_page.dart';
-import 'package:Catalog_app/utilis/routes.dart';
-import 'package:Catalog_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_application_2/Screen/cart_page.dart';
+import 'package:flutter_application_2/Screen/home_page.dart';
+import 'package:flutter_application_2/Screen/login_page.dart';
+import 'package:flutter_application_2/utilis/routes.dart';
+import 'package:flutter_application_2/widgets/themes.dart';
 import 'firebase_options.dart';
 
 void main() async {
