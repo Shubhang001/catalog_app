@@ -1,5 +1,5 @@
+import 'package:Catalog_app/utilis/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/utilis/routes.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -68,6 +68,23 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Username cannot be empty";
+                    }
+
+                    return null;
+                  },
+                  onChanged: (value) {
+                    name = value;
+                    setState(() {});
+                  },
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: "Email Adress",
+                    hintText: "Enter Email",
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Email cannot be empty";
                     }
 
                     return null;

@@ -1,14 +1,12 @@
 import 'dart:convert';
+import 'package:Catalog_app/models/catalog.dart';
+import 'package:Catalog_app/utilis/routes.dart';
+import 'package:Catalog_app/widgets/home_widget/catalog_header.dart';
+import 'package:Catalog_app/widgets/home_widget/catalog_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_2/utilis/routes.dart';
-import 'package:flutter_application_2/widgets/home_widget/catalog_header.dart';
-import 'package:flutter_application_2/widgets/home_widget/catalog_list.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:flutter_application_2/models/catalog.dart';
-import 'package:flutter_application_2/widgets/drawer.dart';
-import 'package:flutter_application_2/widgets/themes.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
