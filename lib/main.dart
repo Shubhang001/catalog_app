@@ -4,8 +4,13 @@ import 'package:flutter_application_2/Screen/home_page.dart';
 import 'package:flutter_application_2/Screen/login_page.dart';
 import 'package:flutter_application_2/utilis/routes.dart';
 import 'package:flutter_application_2/widgets/themes.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -22,11 +27,11 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         // ignore: prefer_const_constructors
-        "/" :(context) => LoginPage(),
-        MyRoutes.homeRoutes:(context) =>  const HomePage(),
+        "/": (context) => LoginPage(),
+        MyRoutes.homeRoutes: (context) => const HomePage(),
         // ignore: prefer_const_constructors
-        MyRoutes.LoginRoutes:(context) => LoginPage(),
-        MyRoutes.cartRoutes:(context) => const CartPage(),
+        MyRoutes.LoginRoutes: (context) => LoginPage(),
+        MyRoutes.cartRoutes: (context) => const CartPage(),
       },
     );
   }

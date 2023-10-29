@@ -9,6 +9,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController emailCOntroller = TextEditingController();
+  TextEditingController usernameCOntroller = TextEditingController();
+  TextEditingController passwordCOntroller = TextEditingController();
   String name = "";
   bool changeButton = false;
 
