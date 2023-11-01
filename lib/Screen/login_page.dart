@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/Screen/signup.dart';
 import 'package:flutter_application_2/utilis/routes.dart';
 
 class LoginPage extends StatefulWidget {
@@ -150,10 +149,16 @@ class _LoginPageState extends State<LoginPage> {
                   thickness: 2,
                   color: Colors.grey,
                 ),
+                const SizedBox(
+                  height: 5,
+                ),
                 InkWell(
                   onTap: () =>
-                      Navigator.pushNamed(context, MyRoutes.SignupRoutes),
-                  child: const Text("Sign Up"),
+                      Navigator.pushNamed(context, MyRoutes.signupRoutes),
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(fontSize: 17),
+                  ),
                 )
 
                 /* ElevatedButton(

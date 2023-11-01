@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         // ignore: prefer_const_constructors
         MyRoutes.LoginRoutes: (context) => LoginPage(),
         MyRoutes.cartRoutes: (context) => const CartPage(),
-        MyRoutes.SignupRoutes: (context) => const Signup(),
+        MyRoutes.signupRoutes: (context) => const Signup(),
       },
     );
   }
