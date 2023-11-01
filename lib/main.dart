@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -27,7 +28,9 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/",
+      initialRoute: (FirebaseAuth.instance.currentUser != null)
+          ? MyRoutes.homeRoutes
+          : "/",
       routes: {
         // ignore: prefer_const_constructors
         "/": (context) => LoginPage(),
