@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/Screen/signup.dart';
 import 'package:flutter_application_2/utilis/routes.dart';
 
 class LoginPage extends StatefulWidget {
@@ -61,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
               key: _formKey,
               child: Column(children: [
                 TextFormField(
+                  controller: usernameCOntroller,
                   decoration: const InputDecoration(
                     labelText: "Username",
                     hintText: "Enter Username",
@@ -78,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 TextFormField(
+                  controller: emailCOntroller,
                   decoration: const InputDecoration(
                     labelText: "Email Adress",
                     hintText: "Enter Email",
@@ -95,6 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 TextFormField(
+                  controller: passwordCOntroller,
                   obscureText: true,
                   decoration: const InputDecoration(
                     labelText: "Password",
@@ -139,6 +143,18 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 5,
+                ),
+                const Divider(
+                  thickness: 2,
+                  color: Colors.grey,
+                ),
+                InkWell(
+                  onTap: () =>
+                      Navigator.pushNamed(context, MyRoutes.SignupRoutes),
+                  child: const Text("Sign Up"),
+                )
 
                 /* ElevatedButton(
                       onPressed: () {
