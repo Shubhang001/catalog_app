@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/utilis/routes.dart';
 
@@ -37,6 +39,10 @@ class _SignupState extends State<Signup> {
     String email = emailCOntroller.text.trim();
     String password = passwordCOntroller.text.trim();
     String cpassword = cpasswordCOntroller.text.trim();
+
+    if (cpassword != password) {
+      log("Passwords do not match");
+    }
   }
 
   @override
