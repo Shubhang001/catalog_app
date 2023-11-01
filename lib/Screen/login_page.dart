@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/utilis/routes.dart';
 
@@ -29,6 +32,20 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         changeButton = false;
       });
+    }
+  }
+
+  void login() async {
+    String email = emailCOntroller.text.trim();
+    String password = passwordCOntroller.text.trim();
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      if (userCredential != null) {
+        MoveToHome(context);
+      }
+    } on FirebaseAuthException catch (ex) {
+      log(ex.code.toString());
     }
   }
 
@@ -81,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   controller: emailCOntroller,
                   decoration: const InputDecoration(
-                    labelText: "Email Adress",
+                    labelText: "Email Address",
                     hintText: "Enter Email",
                   ),
                   validator: (value) {
@@ -90,10 +107,6 @@ class _LoginPageState extends State<LoginPage> {
                     }
 
                     return null;
-                  },
-                  onChanged: (value) {
-                    name = value;
-                    setState(() {});
                   },
                 ),
                 TextFormField(
@@ -119,7 +132,9 @@ class _LoginPageState extends State<LoginPage> {
                   color: Colors.deepPurple,
                   borderRadius: BorderRadius.circular(changeButton ? 40 : 7),
                   child: InkWell(
-                    onTap: () => MoveToHome(context),
+                    onTap: () {
+                      login();
+                    },
                     child: AnimatedContainer(
                       duration: const Duration(seconds: 1),
                       width: changeButton ? 50 : 150,

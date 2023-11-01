@@ -86,10 +86,6 @@ class _SignupState extends State<Signup> {
 
                       return null;
                     },
-                    onChanged: (value) {
-                      name = value;
-                      setState(() {});
-                    },
                   ),
                   TextFormField(
                     controller: emailCOntroller,
@@ -103,10 +99,6 @@ class _SignupState extends State<Signup> {
                       }
 
                       return null;
-                    },
-                    onChanged: (value) {
-                      name = value;
-                      setState(() {});
                     },
                   ),
                   TextFormField(
