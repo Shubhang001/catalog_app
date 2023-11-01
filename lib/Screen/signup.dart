@@ -45,9 +45,16 @@ class _SignupState extends State<Signup> {
       log("Passwords do not match");
       debugPrint("Passwords do not match");
     } else {
-      UserCredential usercredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
-      log("User Created");
+      try {
+        UserCredential usercredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(email: email, password: password);
+        if (usercredential.user != null) {
+          Navigator.pop(context);
+        }
+        log("User Created");
+      } on FirebaseAuthException catch (ex) {
+        log(ex.code.toString());
+      }
     }
   }
 
@@ -146,7 +153,6 @@ class _SignupState extends State<Signup> {
                     child: InkWell(
                       onTap: () {
                         createAccount();
-                        MoveToHome(context);
                       },
                       child: AnimatedContainer(
                         duration: const Duration(seconds: 1),
